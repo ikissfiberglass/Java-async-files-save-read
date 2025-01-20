@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class pracownikService2 {
-    private final ExecutorService executor =  Executors.newFixedThreadPool(10);;
+    private final ExecutorService executor =  Executors.newFixedThreadPool(10);
     private final Map<String, Pracownik> pracownicy = new ConcurrentHashMap<>();
 
     private final String defaultSaveFolder;
@@ -29,7 +29,7 @@ public class pracownikService2 {
         savePracownikToFile(pracownik, defaultSaveFolder);
     }
 
-    public void savePracownikToFile(Pracownik pracownik, String folderPath) {
+    private void savePracownikToFile(Pracownik pracownik, String folderPath) {
         try {
             Files.createDirectories(Paths.get(folderPath));
             String filePath = folderPath + File.separator + pracownik.getPesel() + ".dat";

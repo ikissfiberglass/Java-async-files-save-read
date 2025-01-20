@@ -185,7 +185,10 @@ public class ControllerImpl {
      if (allWorkers.isEmpty()) {
          view.displayMessageNewLine("Brak pracowników do zapisania.");
      } else {
-         allWorkers.forEach(repository::savePracownikToDefaultFolder);
+//         allWorkers.forEach(repository::savePracownikToDefaultFolder);
+         for(Pracownik p : allWorkers ){
+             repository.savePracownikToDefaultFolder(p);
+         }
          view.displayMessageNewLine("Pracownicy zapisani asynchronicznie.");
      }
  }
@@ -197,7 +200,10 @@ public class ControllerImpl {
         if (workers.isEmpty()) {
             view.displayMessageNewLine("Brak pracowników do odczytania.");
         } else {
-            workers.forEach(pracownicy::addPracownik);
+//            workers.forEach(pracownicy::addPracownik);
+            for(Pracownik p : workers){
+                pracownicy.addPracownik(p);
+            }
             view.displayMessageNewLine("Pracownicy odczytani asynchronicznie i dodani do repozytorium.");
         }
     }
